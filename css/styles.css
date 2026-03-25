@@ -123,6 +123,54 @@ body {
     z-index: 2;
 }
 
+.institutional-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 0px;
+    padding: 0;
+}
+
+.brand-primary,
+.brand-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    color: #e7f2ff;
+    text-decoration: none;
+}
+
+.brand-logo {
+    display: block;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.28));
+}
+
+.brand-logo.upt {
+    height: 90px;
+}
+
+.brand-logo.epis {
+    height: 90px;
+}
+
+.hero-note {
+    margin-left: auto;
+    max-width: 340px;
+    border: 1px solid rgba(191, 219, 254, 0.28);
+    border-radius: 12px;
+    background: linear-gradient(155deg, rgba(6, 24, 46, 0.66), rgba(5, 16, 31, 0.8));
+    padding: 12px;
+}
+
+.hero-note p {
+    margin: 0;
+    color: #d6e7fb;
+    font-size: 0.88rem;
+}
+
 .hero-split {
     display: grid;
     grid-template-columns: 1.2fr 0.9fr;
@@ -437,7 +485,7 @@ body {
     max-width: 1220px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(8, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr)) 1.5fr auto;
     gap: 14px;
     background: var(--bg-glass);
     border: 1px solid rgba(246, 248, 255, 0.22);
@@ -505,12 +553,16 @@ body {
 }
 
 .filter-action-group .btn-clear {
-    width: 100%;
+    width: 34px;
+    min-height: 34px;
+    height: 34px;
+    padding: 0;
+    border-radius: 8px;
+    margin-top: auto;
 }
 
 .filter-group select,
-.filter-search-group .search-box-under-filters,
-.filter-action-group .btn-clear {
+.filter-search-group .search-box-under-filters {
     width: 100%;
 }
 
@@ -1417,6 +1469,27 @@ body {
     font-size: 0.9rem;
 }
 
+.footer-brand-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-logo {
+    width: auto;
+    object-fit: contain;
+    opacity: 0.96;
+}
+
+.footer-logo.upt {
+    height: 56px;
+}
+
+.footer-logo.epis {
+    height: 46px;
+}
+
 .footer-note {
     color: #8ea5c4;
     margin-top: 4px;
@@ -1454,6 +1527,20 @@ body {
         text-align: center;
     }
 
+    .institutional-header {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .brand-logo.upt {
+        height: 58px;
+    }
+
+    .brand-logo.epis {
+        height: 46px;
+    }
+
     .hero-subtitle-side {
         text-align: center;
         margin-left: auto;
@@ -1462,6 +1549,11 @@ body {
 
     .hero-school-card {
         margin: 0 auto;
+    }
+
+    .hero-note {
+        margin: 0 auto;
+        text-align: center;
     }
 
     .search-box {
