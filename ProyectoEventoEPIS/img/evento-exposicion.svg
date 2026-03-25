@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-label="Exposicion">
+  <defs>
+    <linearGradient id="g6" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#g6)"/>
+  <g fill="#38bdf8">
+    <rect x="100" y="140" width="220" height="170" rx="16"/>
+    <rect x="360" y="180" width="220" height="130" rx="16"/>
+    <rect x="620" y="120" width="220" height="190" rx="16"/>
+    <rect x="880" y="180" width="220" height="130" rx="16"/>
+  </g>
+  <text x="100" y="470" fill="#f8fafc" font-size="90" font-family="Arial, sans-serif" font-weight="700">EXPOSICION</text>
+  <text x="100" y="545" fill="#cbd5e1" font-size="38" font-family="Arial, sans-serif">Visualiza prototipos e investigaciones</text>
+</svg>

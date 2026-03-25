@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-label="Hackathon">
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#ff7b00"/>
+      <stop offset="100%" stop-color="#ff3b30"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#g1)"/>
+  <circle cx="220" cy="170" r="170" fill="#ffffff22"/>
+  <circle cx="980" cy="520" r="200" fill="#0000001a"/>
+  <text x="90" y="230" fill="#ffffff" font-size="90" font-family="Arial, sans-serif" font-weight="700">HACKATHON</text>
+  <text x="90" y="320" fill="#fff9" font-size="42" font-family="Arial, sans-serif">Desafio de codigo y prototipado</text>
+  <rect x="90" y="410" width="360" height="70" rx="35" fill="#ffffff"/>
+  <text x="150" y="457" fill="#ff4f2f" font-size="36" font-family="Arial, sans-serif" font-weight="700">UPT SYSTEMS</text>
+</svg>

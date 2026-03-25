@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartelera de actividades UPT</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Background Animado -->
+    <div class="bg-animation">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-content">
+            <div class="hero-split">
+                <div class="hero-left">
+                    <h1 class="hero-title-side">Cartelera de actividades</h1>
+                </div>
+
+                <div class="hero-right">
+                    <div class="hero-school-card">
+                        <h2 class="hero-school-big">UPT</h2>
+                        <div class="hero-logo-slots" aria-label="Espacios para logos UPT">
+                            <div class="hero-logo-slot" title="Logo UPT 1">LOGO 1</div>
+                            <div class="hero-logo-slot" title="Logo UPT 2">LOGO 2</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Filtros -->
+    <section class="filters-section" id="filters">
+        <div class="filters-container">
+            
+            <div class="filter-group">
+                <label>Categoría</label>
+                <select id="filterCategory">
+                    <option value="all">Todas</option>
+                    <option value="Hackathon">Hackathon</option>
+                    <option value="Congreso">Congreso</option>
+                    <option value="Feria">Feria</option>
+                    <option value="Foro">Foro</option>
+                    <option value="Seminario">Seminario</option>
+                    <option value="Exposición">Exposición</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Modalidad</label>
+                <select id="filterModality">
+                    <option value="all">Todas</option>
+                    <option value="Presencial">Presencial</option>
+                    <option value="Virtual">Virtual</option>
+                    <option value="Híbrido">Híbrido</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Estado</label>
+                <select id="filterStatus">
+                    <option value="all">Todos</option>
+                    <option value="Confirmado">Confirmado</option>
+                    <option value="Próximo">Próximo</option>
+                    <option value="Pendiente">Pendiente</option>
+                    <option value="Finalizado">Finalizado</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Ordenar</label>
+                <select id="filterSort">
+                    <option value="fechaAsc">Fecha: mas cercano</option>
+                    <option value="fechaDesc">Fecha: mas lejano</option>
+                    <option value="nombreAsc">Nombre: A-Z</option>
+                </select>
+            </div>
+
+            <div class="filter-group filter-search-group">
+                <label>Buscar</label>
+                <div class="search-box search-box-under-filters">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Buscar evento...">
+                </div>
+            </div>
+
+            <div class="filter-group filter-action-group">
+                <label>Limpiar</label>
+                <button id="clearFilters" class="btn-clear" aria-label="Limpiar filtros">
+                    <i class="fas fa-eraser"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div id="eventsCount" class="hidden" aria-hidden="true">0</div>
+    </section>
+
+    <!-- Contenedor de Eventos -->
+    <main class="container">
+        <div id="eventsGrid" class="events-grid">
+            <!-- Los eventos se renderizan aquí con JavaScript -->
+        </div>
+        
+        <!-- Mensaje cuando no hay resultados -->
+        <div id="noResults" class="no-results hidden">
+            <i class="fas fa-search"></i>
+            <h3>No encontramos eventos</h3>
+            <p>Intenta ajustar tus filtros o términos de búsqueda.</p>
+            <button id="resetSearch" class="btn-secondary">Ver todos los eventos</button>
+        </div>
+    </main>
+
+    <section class="upcoming-alert-wrap" aria-label="Alertas de proximos eventos">
+        <button id="openUpcomingAlert" class="upcoming-alert-btn" type="button">
+            <i class="fas fa-bell"></i>
+            <span>Alertas</span>
+        </button>
+    </section>
+
+    <div id="upcomingPanel" class="upcoming-panel hidden" aria-hidden="true">
+        <div class="upcoming-panel-content">
+            <div class="upcoming-panel-header">
+                <h3>Proximos eventos</h3>
+                <button id="closeUpcomingPanel" class="upcoming-close" type="button" aria-label="Cerrar panel">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="upcomingList" class="upcoming-list"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>Agenda de Eventos de la Escuela Profesional de Ingenieria de Sistemas - UPT</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

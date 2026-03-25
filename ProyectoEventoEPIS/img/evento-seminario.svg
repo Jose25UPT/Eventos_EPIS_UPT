@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-label="Seminario">
+  <defs>
+    <linearGradient id="g5" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#dc2626"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#g5)"/>
+  <rect x="70" y="80" width="1060" height="540" rx="30" fill="#0000001f"/>
+  <text x="120" y="255" fill="#ffffff" font-size="96" font-family="Arial, sans-serif" font-weight="700">SEMINARIO</text>
+  <text x="120" y="338" fill="#fff3d5" font-size="44" font-family="Arial, sans-serif">Especialistas, casos reales y herramientas</text>
+</svg>
