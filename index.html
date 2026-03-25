@@ -37,8 +37,8 @@
                     <div class="hero-school-card">
                         <h2 class="hero-school-big">UPT</h2>
                         <div class="hero-logo-slots" aria-label="Espacios para logos UPT">
-                            <div class="hero-logo-slot" title="Logo UPT 1">LOGO 1</div>
-                            <div class="hero-logo-slot" title="Logo UPT 2">LOGO 2</div>
+                            <div class="hero-logo-slot" title="Logo UPT 1"><img class="hero-logo-img logo-epis" src="img/logoEPIS.png" alt="Logo UPT 1"></div>
+                            <div class="hero-logo-slot" title="Logo UPT 2"><img class="hero-logo-img logo-upt" src="img/logoUPT.png" alt="Logo UPT 2"></div>
                         </div>
                     </div>
                 </div>
@@ -82,6 +82,20 @@
                     <option value="Próximo">Próximo</option>
                     <option value="Pendiente">Pendiente</option>
                     <option value="Finalizado">Finalizado</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Semestre</label>
+                <select id="filterSemester">
+                    <option value="all">Todos</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Año</label>
+                <select id="filterYear">
+                    <option value="all">Todos</option>
                 </select>
             </div>
 
@@ -144,6 +158,15 @@
                 </button>
             </div>
             <div id="upcomingList" class="upcoming-list"></div>
+        </div>
+    </div>
+
+    <div id="eventDetailModal" class="event-detail-modal hidden" aria-hidden="true">
+        <div class="event-detail-dialog" role="dialog" aria-modal="true" aria-labelledby="eventDetailTitle">
+            <button id="closeEventDetail" class="event-detail-close" type="button" aria-label="Cerrar detalle">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="eventDetailBody"></div>
         </div>
     </div>
 
