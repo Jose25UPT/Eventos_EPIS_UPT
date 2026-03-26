@@ -278,7 +278,7 @@ const eventosData = [
         categoria: "Hackathon",
         institucion: "Google For Developers / GDG Tacna",
         lugar: "Tacna",
-        fechaEvento: "2026-03-28",
+        fechaEvento: "2026-04-11",
         duracion: "1 día",
         cierreInscripcion: "",
         modalidad: "Presencial",
