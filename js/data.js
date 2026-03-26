@@ -1,3 +1,27 @@
+/**
+ * Datos de eventos EPIS-UPT
+ *
+ * Campos disponibles por evento:
+ *   id                  – Identificador único (string)
+ *   nombre              – Nombre del evento
+ *   categoria           – Hackathon | Congreso | Feria | Foro | Seminario | Exposición | Webinar
+ *   institucion         – Institución organizadora
+ *   lugar               – Lugar / sede del evento
+ *   fechaEvento         – Fecha del evento (YYYY-MM-DD)
+ *   duracion            – Duración (ej. "1 día", "3 días", "2 horas")
+ *   cierreInscripcion   – Fecha límite de inscripción (YYYY-MM-DD, puede estar vacío)
+ *   modalidad           – Presencial | Virtual | Híbrido
+ *   estado              – Confirmado | Próximo | Pendiente | Realizado | Finalizado
+ *   link                – URL del evento (puede estar vacío)
+ *   responsable         – Persona responsable (puede estar vacío)
+ *   repetirProximoAnio  – true | false
+ *   repetible           – "Sí" | "" 
+ *   notas               – Observaciones adicionales (puede estar vacío)
+ *   imagen              – (OPCIONAL) Ruta a una imagen personalizada del evento.
+ *                         Ejemplos: 'img/mi-afiche.jpg'  /  'img/evento-015.png'
+ *                         Si se omite o queda vacío (""), se mostrará automáticamente
+ *                         la imagen predeterminada según la categoría del evento.
+ */
 const eventosData = [
     {
         id: "001",
@@ -14,7 +38,8 @@ const eventosData = [
         responsable: "",
         repetirProximoAnio: true,
         repetible: "Sí",
-        notas: "Evento anual de tecnología"
+        notas: "Evento anual de tecnología",
+        imagen: ""
     },
     {
         id: "002",
@@ -31,7 +56,8 @@ const eventosData = [
         responsable: "",
         repetirProximoAnio: true,
         repetible: "Sí",
-        notas: ""
+        notas: "",
+        imagen: ""
     },
     {
         id: "003",
@@ -48,7 +74,8 @@ const eventosData = [
         responsable: "",
         repetirProximoAnio: true,
         repetible: "Sí",
-        notas: "Participación universitaria"
+        notas: "Participación universitaria",
+        imagen: ""
     },
     {
         id: "004",
@@ -65,7 +92,8 @@ const eventosData = [
         responsable: "",
         repetirProximoAnio: true,
         repetible: "Sí",
-        notas: "Participación universitaria"
+        notas: "Participación universitaria",
+        imagen: ""
     },
     {
         id: "005",
@@ -82,7 +110,8 @@ const eventosData = [
         responsable: "",
         repetirProximoAnio: true,
         repetible: "Sí",
-        notas: "Edición anterior exitosa"
+        notas: "Edición anterior exitosa",
+        imagen: ""
     },
     {
         id: "006",
@@ -99,7 +128,8 @@ const eventosData = [
         responsable: "",
         repetirProximoAnio: true,
         repetible: "Sí",
-        notas: "Campamento de Programación Competitiva"
+        notas: "Campamento de Programación Competitiva",
+        imagen: ""
     },
     {
         id: "007",
@@ -116,7 +146,8 @@ const eventosData = [
         responsable: "",
         repetirProximoAnio: true,
         repetible: "Sí",
-        notas: "Muy buena convocatoria"
+        notas: "Muy buena convocatoria",
+        imagen: ""
     },
     {
         id: "008",
@@ -133,7 +164,8 @@ const eventosData = [
         responsable: "",
         repetirProximoAnio: true,
         repetible: "Sí",
-        notas: ""
+        notas: "",
+        imagen: ""
     },
     {
         id: "009",
@@ -150,7 +182,8 @@ const eventosData = [
         responsable: "",
         repetirProximoAnio: true,
         repetible: "Sí",
-        notas: ""
+        notas: "",
+        imagen: ""
     },
     {
         id: "010",
@@ -167,7 +200,8 @@ const eventosData = [
         responsable: "",
         repetirProximoAnio: true,
         repetible: "Sí",
-        notas: "Rotativo por regiones"
+        notas: "Rotativo por regiones",
+        imagen: ""
     },
     {
         id: "011",
@@ -183,7 +217,8 @@ const eventosData = [
         link: "https://www.facebook.com/paqarinawasicusco/posts/-hackaton-challenge-2026-paqarina-wasitu-idea-puede-convertirse-en-un-prototipo-/122212460906359675/",
         responsable: "",
         repetible: "",
-        notas: ""
+        notas: "",
+        imagen: ""
     },
     {
         id: "012",
@@ -199,7 +234,8 @@ const eventosData = [
         link: "https://devfest.gdgtacna.com/",
         responsable: "",
         repetible: "",
-        notas: ""
+        notas: "",
+        imagen: ""
     },
     {
         id: "013",
@@ -215,7 +251,8 @@ const eventosData = [
         link: "https://www.sistemasdelsur.edu.pe/congreso/",
         responsable: "",
         repetible: "",
-        notas: ""
+        notas: "",
+        imagen: ""
     },
     {
         id: "014",
@@ -232,7 +269,8 @@ const eventosData = [
         responsable: "",
         repetirProximoAnio: true,
         repetible: "Sí",
-        notas: ""
+        notas: "",
+        imagen: ""
     },
     {
         id: "015",
@@ -249,7 +287,8 @@ const eventosData = [
         responsable: "",
         repetirProximoAnio: true,
         repetible: "Sí",
-        notas: ""
+        notas: "",
+        imagen: ""
     },
     {
         id: "016",
@@ -266,7 +305,8 @@ const eventosData = [
         responsable: "",
         repetirProximoAnio: true,
         repetible: "Sí",
-        notas: ""
+        notas: "",
+        imagen: ""
     },
     {
         id: "017",
@@ -283,6 +323,7 @@ const eventosData = [
         responsable: "Dr. Gaspar Morán Flores",
         repetirProximoAnio: true,
         repetible: "Sí",
-        notas: "16:00 pm a 17:00 pm"
+        notas: "16:00 pm a 17:00 pm",
+        imagen: ""
     }
 ];
