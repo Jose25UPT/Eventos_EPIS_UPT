@@ -306,7 +306,7 @@ const eventosData = [
         repetirProximoAnio: true,
         repetible: "Sí",
         notas: "",
-        imagen: ""
+        imagen: "img/16.webp"
     },
     {
         id: "017",
