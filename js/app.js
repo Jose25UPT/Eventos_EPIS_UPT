@@ -496,7 +496,8 @@ function obtenerIconoCategoria(categoria) {
         'Feria': 'fa-store',
         'Foro': 'fa-comments',
         'Seminario': 'fa-chalkboard-teacher',
-        'Exposición': 'fa-image'
+        'Exposición': 'fa-image',
+        'Webinar': 'fa-video'
     };
     return iconos[categoria] || 'fa-calendar-alt';
 }
@@ -508,7 +509,8 @@ function obtenerImagenCategoria(categoria) {
         Feria: 'img/evento-feria.svg',
         Foro: 'img/evento-foro.svg',
         Seminario: 'img/evento-seminario.svg',
-        Exposición: 'img/evento-exposicion.svg'
+        Exposición: 'img/evento-exposicion.svg',
+        Webinar: 'img/evento-seminario.svg'
     };
     return imagenes[categoria] || 'img/evento-default.svg';
 }
