@@ -235,7 +235,7 @@ const eventosData = [
         responsable: "",
         repetible: "",
         notas: "",
-        imagen: ""
+        imagen: "img/12.webp"
     },
     {
         id: "013",
@@ -252,7 +252,7 @@ const eventosData = [
         responsable: "",
         repetible: "",
         notas: "",
-        imagen: ""
+        imagen: "img/13.jpg"
     },
     {
         id: "014",
@@ -270,7 +270,7 @@ const eventosData = [
         repetirProximoAnio: true,
         repetible: "Sí",
         notas: "",
-        imagen: ""
+        imagen: "img/14.jfif"
     },
     {
         id: "015",
@@ -288,7 +288,7 @@ const eventosData = [
         repetirProximoAnio: true,
         repetible: "Sí",
         notas: "",
-        imagen: ""
+        imagen: "img/15.webp"
     },
     {
         id: "016",
@@ -324,6 +324,6 @@ const eventosData = [
         repetirProximoAnio: true,
         repetible: "Sí",
         notas: "16:00 pm a 17:00 pm",
-        imagen: ""
+        imagen: "img/17.jpg"
     }
 ];
