@@ -325,5 +325,23 @@ const eventosData = [
         repetible: "Sí",
         notas: "16:00 pm a 17:00 pm",
         imagen: "img/17.jpg"
+    },
+    {
+        id: "018",
+        nombre: "Perú Hub Digital 2026",
+        categoria: "Congreso",
+        institucion: "Perú Hub Digital",
+        lugar: "Lima",
+        fechaEvento: "2026-05-13",
+        duracion: "3 días",
+        cierreInscripcion: "",
+        modalidad: "Presencial",
+        estado: "Próximo",
+        link: "https://lnkd.in/eKAWs4mF",
+        responsable: "",
+        repetirProximoAnio: true,
+        repetible: "Sí",
+        notas: "13 y 14 de mayo – Profesionales | 15 de mayo – Universitarios. Centro de Convenciones del Parque de la Amistad. Registro profesionales: https://lnkd.in/evpUKpJQ",
+        imagen: "https://github.com/user-attachments/assets/f374e313-79b2-442f-8357-cabbb5d798f9"
     }
 ];
