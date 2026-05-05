@@ -327,6 +327,24 @@ const eventosData = [
         imagen: "img/17.jpg"
     },
     {
+        id: "019",
+        nombre: "IOT, EN LA ILUMINACIÓN PÚBLICA",
+        categoria: "Seminario",
+        institucion: "Colegio de Ingenieros del Perú - Consejo Nacional",
+        lugar: "SALA A CIP CN (Av. Arequipa 4947, Miraflores) / Virtual vía Zoom",
+        fechaEvento: "2026-05-12",
+        duracion: "1 día",
+        cierreInscripcion: "",
+        modalidad: "Híbrido",
+        estado: "Próximo",
+        link: "",
+        responsable: "",
+        repetirProximoAnio: false,
+        repetible: "",
+        notas: "Evento Internacional. 6:00 p.m. Expositores: Gary Zhang (Vicedirector de Diseño de Iluminación y Market Center, Hangzhou Hpwinner Opto Corporation) - Presencial; Manuel Gao (Director de ventas, Hangzhou Hpwinner Opto Corporation) - Virtual vía Zoom. Certificado opcional. Con el apoyo de HPWINNER - Experts In Customized Roadway Lighting.",
+        imagen: ""
+    },
+    {
         id: "018",
         nombre: "Perú Hub Digital 2026",
         categoria: "Congreso",
