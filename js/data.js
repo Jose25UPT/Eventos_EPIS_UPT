@@ -337,12 +337,12 @@ const eventosData = [
         cierreInscripcion: "",
         modalidad: "Híbrido",
         estado: "Próximo",
-        link: "",
+        link: "https://docs.google.com/forms/d/e/1FAIpQLSfg2Bi7zpW3lYiH8HB64sOCdjOufS9J1BQHiZR8fOupK6u3zA/viewform",
         responsable: "",
         repetirProximoAnio: false,
         repetible: "",
         notas: "Evento Internacional. 6:00 p.m. Expositores: Gary Zhang (Vicedirector de Diseño de Iluminación y Market Center, Hangzhou Hpwinner Opto Corporation) - Presencial; Manuel Gao (Director de ventas, Hangzhou Hpwinner Opto Corporation) - Virtual vía Zoom. Certificado opcional. Con el apoyo de HPWINNER - Experts In Customized Roadway Lighting.",
-        imagen: "uni.jpg"
+        imagen: "img/uni.jpg"
     },
     {
         id: "018",
