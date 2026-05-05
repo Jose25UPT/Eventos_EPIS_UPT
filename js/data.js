@@ -327,7 +327,7 @@ const eventosData = [
         imagen: "img/17.jpg"
     },
     {
-        id: "019",
+        id: "020",
         nombre: "IOT, EN LA ILUMINACIÓN PÚBLICA",
         categoria: "Seminario",
         institucion: "Colegio de Ingenieros del Perú - Consejo Nacional",
