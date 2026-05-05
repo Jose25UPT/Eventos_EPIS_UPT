@@ -293,19 +293,19 @@ const eventosData = [
     {
         id: "016",
         nombre: "Build with AI Tacna 2026",
-        categoria: "Seminario",
+        categoria: "Exposición",
         institucion: "Google For Developers / GDG Tacna",
-        lugar: "Tacna / Aula Magistral y Laboratorios de Cómputo EPIS - UPT",
-        fechaEvento: "2026-05-16",
-        duracion: "6 horas",
+        lugar: "Tacna",
+        fechaEvento: "2026-04-11",
+        duracion: "1 día",
         cierreInscripcion: "",
         modalidad: "Presencial",
-        estado: "Confirmado",
+        estado: "Próximo",
         link: "https://gdg.community.dev/events/details/google-gdg-tacna-presents-build-with-ai-tacna-2026/",
-        responsable: "Angelo Luciano Leva Vizcarra – GDG Organizer",
+        responsable: "",
         repetirProximoAnio: true,
         repetible: "Sí",
-        notas: "Horario: 9:00 a.m. a 3:00 p.m. Talleres prácticos, charlas técnicas y networking. Evento respaldado oficialmente por Google a través del programa Google Developer Groups.",
+        notas: "",
         imagen: "img/16.webp"
     },
     {
@@ -343,5 +343,23 @@ const eventosData = [
         repetible: "Sí",
         notas: "13 y 14 de mayo – Profesionales | 15 de mayo – Universitarios. Centro de Convenciones del Parque de la Amistad. Registro profesionales: https://lnkd.in/evpUKpJQ",
         imagen: "https://github.com/user-attachments/assets/f374e313-79b2-442f-8357-cabbb5d798f9"
+    },
+    {
+        id: "019",
+        nombre: "Build with AI Tacna 2026",
+        categoria: "Seminario",
+        institucion: "Google For Developers / GDG Tacna",
+        lugar: "Tacna / Aula Magistral y Laboratorios de Cómputo EPIS - UPT",
+        fechaEvento: "2026-05-16",
+        duracion: "6 horas",
+        cierreInscripcion: "",
+        modalidad: "Presencial",
+        estado: "Confirmado",
+        link: "https://gdg.community.dev/events/details/google-gdg-tacna-presents-build-with-ai-tacna-2026/",
+        responsable: "Angelo Luciano Leva Vizcarra – GDG Organizer",
+        repetirProximoAnio: true,
+        repetible: "Sí",
+        notas: "Horario: 9:00 a.m. a 3:00 p.m. Talleres prácticos, charlas técnicas y networking. Evento respaldado oficialmente por Google a través del programa Google Developer Groups.",
+        imagen: "img/16.webp"
     }
 ];
