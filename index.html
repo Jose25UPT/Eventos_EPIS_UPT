@@ -136,9 +136,26 @@
 
     <!-- Contenedor de Eventos -->
     <main class="container">
-        <div id="eventsGrid" class="events-grid">
-            <!-- Los eventos se renderizan aquí con JavaScript -->
-        </div>
+        <!-- Sección de eventos destacados (esta semana y próximos) -->
+        <section id="featuredEventsSection" class="featured-events-section hidden">
+            <div class="featured-header">
+                <h2 class="featured-title">⭐ Eventos que no puedes perder</h2>
+                <p class="featured-subtitle">Los siguientes eventos son los más cercanos en el calendario</p>
+            </div>
+            <div id="featuredEventsGrid" class="featured-events-grid">
+                <!-- Los eventos destacados se renderizan aquí -->
+            </div>
+        </section>
+
+        <!-- Grid normal de todos los eventos -->
+        <section class="other-events-section">
+            <div class="other-events-header" id="otherEventsHeader">
+                <h2 class="other-events-title">📅 Todos los eventos</h2>
+            </div>
+            <div id="eventsGrid" class="events-grid">
+                <!-- Los eventos se renderizan aquí con JavaScript -->
+            </div>
+        </section>
         
         <!-- Mensaje cuando no hay resultados -->
         <div id="noResults" class="no-results hidden">

@@ -21,6 +21,9 @@ const appState = {
 // Elementos del DOM
 const DOM = {
     grid: document.getElementById('eventsGrid'),
+    featuredGrid: document.getElementById('featuredEventsGrid'),
+    featuredSection: document.getElementById('featuredEventsSection'),
+    otherEventsHeader: document.getElementById('otherEventsHeader'),
     searchInput: document.getElementById('searchInput'),
     filterCategory: document.getElementById('filterCategory'),
     filterModality: document.getElementById('filterModality'),
@@ -64,6 +67,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Actualizar contador
     actualizarContador();
+
+    // Iniciar notificaciones periódicas de eventos próximos
+    iniciarNotificacionesProximos();
 });
 
 // =========================================
@@ -131,6 +137,12 @@ function setupEventListeners() {
 
     // Acciones de cards y panel de proximos
     DOM.grid?.addEventListener('click', (e) => {
+        // Efecto ripple para cards próximos
+        const cardProximo = e.target.closest('.evento-proximo');
+        if (cardProximo) {
+            crearEfectoRipple(cardProximo, e);
+        }
+
         const botonDetalles = e.target.closest('[data-action="open-details"]');
         if (botonDetalles) {
             const eventoDetalle = obtenerEventoPorId(botonDetalles.dataset.eventId);
@@ -315,19 +327,50 @@ function compararPorCercaniaFecha(a, b) {
 // =========================================
 function renderEventos(eventos) {
     DOM.grid.innerHTML = '';
+    DOM.featuredGrid.innerHTML = '';
     
     if (eventos.length === 0) {
         DOM.noResults.classList.remove('hidden');
         if (DOM.eventsCount) DOM.eventsCount.textContent = '0';
+        DOM.featuredSection.classList.add('hidden');
         return;
     }
     
     DOM.noResults.classList.add('hidden');
     
-    eventos.forEach((evento, index) => {
-        const card = crearCardEvento(evento, index);
-        DOM.grid.appendChild(card);
+    // Separar eventos destacados (esta semana + próximos) del resto
+    const eventosDestacados = [];
+    const eventosNormales = [];
+    
+    eventos.forEach((evento) => {
+        if (esEventoEstaSemana(evento) || esEventoProximo(evento)) {
+            eventosDestacados.push(evento);
+        } else {
+            eventosNormales.push(evento);
+        }
     });
+    
+    // Renderizar eventos destacados si existen
+    if (eventosDestacados.length > 0) {
+        DOM.featuredSection.classList.remove('hidden');
+        eventosDestacados.forEach((evento, index) => {
+            const card = crearCardEvento(evento, index);
+            DOM.featuredGrid.appendChild(card);
+        });
+    } else {
+        DOM.featuredSection.classList.add('hidden');
+    }
+    
+    // Renderizar eventos normales
+    if (eventosNormales.length > 0) {
+        DOM.otherEventsHeader.classList.remove('hidden');
+        eventosNormales.forEach((evento, index) => {
+            const card = crearCardEvento(evento, index + eventosDestacados.length);
+            DOM.grid.appendChild(card);
+        });
+    } else {
+        DOM.otherEventsHeader.classList.add('hidden');
+    }
     
     actualizarContador(eventos.length);
     actualizarEstadisticasHero(eventos.length);
@@ -338,7 +381,9 @@ function crearCardEvento(evento, index) {
     article.className = 'evento-card';
     if (esEventoFinalizado(evento)) article.classList.add('evento-finalizado');
     const estaEnSemana = esEventoEstaSemana(evento);
+    const esProximo = esEventoProximo(evento);
     if (estaEnSemana) article.classList.add('evento-esta-semana');
+    if (esProximo) article.classList.add('evento-proximo');
     article.style.setProperty('--i', index);
 
     // Badge de estado
@@ -361,6 +406,7 @@ function crearCardEvento(evento, index) {
         />
         ${esEventoFinalizado(evento) ? '<span class="card-watermark">CERRADO</span>' : ''}
         ${estaEnSemana ? '<span class="badge-esta-semana">🔥 Esta semana</span>' : ''}
+        ${esProximo && !estaEnSemana ? '<span class="badge-proximo">⭐ Próximamente</span>' : ''}
 
         <span class="poster-ribbon">${estadoEfectivo === 'Próximo' ? 'Estreno' : 'Evento'}</span>
         <span class="card-status ${estadoBadge.class}">
@@ -479,6 +525,27 @@ function esEventoEstaSemana(evento) {
 
     fecha.setHours(0, 0, 0, 0);
     return fecha >= lunesSemana && fecha <= domingoSemana;
+}
+
+function esEventoProximo(evento) {
+    const fecha = obtenerFechaEventoEfectiva(evento);
+    if (Number.isNaN(fecha.getTime())) return false;
+
+    const hoy = new Date();
+    hoy.setHours(0, 0, 0, 0);
+
+    // Si ya pasó, no es próximo
+    if (fecha < hoy) return false;
+
+    // Si es esta semana, mostrar el badge de "esta semana" en lugar de "próximo"
+    if (esEventoEstaSemana(evento)) return false;
+
+    // Próximos 14 días a partir de hoy
+    const en14Dias = new Date(hoy);
+    en14Dias.setDate(hoy.getDate() + 14);
+
+    fecha.setHours(0, 0, 0, 0);
+    return fecha > hoy && fecha <= en14Dias;
 }
 
 function esEventoRepetible(evento) {
@@ -891,4 +958,100 @@ function reproducirEfectoArranque() {
     } catch (error) {
         console.warn('No se pudo reproducir el efecto de arranque.', error);
     }
+}
+
+// =========================================
+// EFECTOS VISUALES Y NOTIFICACIONES
+// =========================================
+function crearEfectoRipple(elemento, evento) {
+    const rect = elemento.getBoundingClientRect();
+    const x = evento.clientX - rect.left;
+    const y = evento.clientY - rect.top;
+
+    const ripple = document.createElement('div');
+    ripple.className = 'click-ripple';
+    ripple.style.left = x + 'px';
+    ripple.style.top = y + 'px';
+    ripple.style.width = '20px';
+    ripple.style.height = '20px';
+    ripple.style.position = 'absolute';
+
+    elemento.appendChild(ripple);
+
+    // Remover el ripple después de la animación
+    setTimeout(() => ripple.remove(), 600);
+}
+
+function iniciarNotificacionesProximos() {
+    // Mostrar notificación cada 15 segundos si hay eventos próximos
+    const eventosProximos = appState.eventos.filter(e => esEventoProximo(e) || esEventoEstaSemana(e));
+    
+    if (eventosProximos.length === 0) return;
+
+    setInterval(() => {
+        const proximoAleatorio = eventosProximos[Math.floor(Math.random() * eventosProximos.length)];
+        mostrarNotificacionProximo(proximoAleatorio);
+    }, 20000); // Cada 20 segundos
+}
+
+function mostrarNotificacionProximo(evento) {
+    // Crear notificación visual silenciosa
+    const notif = document.createElement('div');
+    notif.style.cssText = `
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: linear-gradient(135deg, #30e3ca 0%, #00a6fb 100%);
+        color: white;
+        padding: 16px 24px;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(48, 227, 202, 0.35);
+        font-weight: 600;
+        font-size: 0.95rem;
+        z-index: 1000;
+        animation: slideUpIn 0.4s ease both, slideDownOut 0.4s ease 5.6s both;
+        max-width: 280px;
+        word-wrap: break-word;
+        cursor: pointer;
+    `;
+    
+    notif.innerHTML = `⭐ ${evento.nombre} - ${formatearFechaEvento(evento)}`;
+    
+    notif.onclick = () => {
+        abrirDetalleEvento(evento);
+        notif.remove();
+    };
+
+    document.body.appendChild(notif);
+
+    // Agregar estilos de animación si no existen
+    if (!document.getElementById('notif-styles')) {
+        const style = document.createElement('style');
+        style.id = 'notif-styles';
+        style.textContent = `
+            @keyframes slideUpIn {
+                from {
+                    transform: translateY(120%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+            @keyframes slideDownOut {
+                from {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateY(120%);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+    setTimeout(() => notif.remove(), 6000);
 }
