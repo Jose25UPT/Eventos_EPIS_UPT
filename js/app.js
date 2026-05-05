@@ -337,6 +337,8 @@ function crearCardEvento(evento, index) {
     const article = document.createElement('article');
     article.className = 'evento-card';
     if (esEventoFinalizado(evento)) article.classList.add('evento-finalizado');
+    const estaEnSemana = esEventoEstaSemana(evento);
+    if (estaEnSemana) article.classList.add('evento-esta-semana');
     article.style.setProperty('--i', index);
 
     // Badge de estado
@@ -358,6 +360,7 @@ function crearCardEvento(evento, index) {
             onerror="this.onerror=null;this.src='${obtenerImagenCategoria(evento.categoria)}';"
         />
         ${esEventoFinalizado(evento) ? '<span class="card-watermark">CERRADO</span>' : ''}
+        ${estaEnSemana ? '<span class="badge-esta-semana">🔥 Esta semana</span>' : ''}
 
         <span class="poster-ribbon">${estadoEfectivo === 'Próximo' ? 'Estreno' : 'Evento'}</span>
         <span class="card-status ${estadoBadge.class}">
@@ -455,6 +458,27 @@ function esEventoFinalizado(evento) {
     hoy.setHours(0, 0, 0, 0);
 
     return fecha < hoy;
+}
+
+function esEventoEstaSemana(evento) {
+    const fecha = obtenerFechaEventoEfectiva(evento);
+    if (Number.isNaN(fecha.getTime())) return false;
+
+    const hoy = new Date();
+    hoy.setHours(0, 0, 0, 0);
+
+    // Inicio de la semana actual (lunes)
+    const diaSemana = hoy.getDay();
+    const diasHastaLunes = diaSemana === 0 ? -6 : 1 - diaSemana;
+    const lunesSemana = new Date(hoy);
+    lunesSemana.setDate(hoy.getDate() + diasHastaLunes);
+
+    // Fin de la semana actual (domingo)
+    const domingoSemana = new Date(lunesSemana);
+    domingoSemana.setDate(lunesSemana.getDate() + 6);
+
+    fecha.setHours(0, 0, 0, 0);
+    return fecha >= lunesSemana && fecha <= domingoSemana;
 }
 
 function esEventoRepetible(evento) {

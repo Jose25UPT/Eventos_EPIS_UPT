@@ -645,6 +645,72 @@ body {
     background: linear-gradient(90deg, #00a6fb 0%, #22d3ee 45%, #ff7b00 100%);
 }
 
+/* ===== EVENTOS DE ESTA SEMANA ===== */
+.evento-esta-semana {
+    grid-column: span 2;
+    border: 2px solid rgba(255, 123, 0, 0.5);
+    animation: riseIn 0.55s ease both, weekGlow 2.6s ease-in-out infinite;
+    animation-delay: calc(var(--i, 0) * 0.08s), calc(var(--i, 0) * 0.08s + 0.6s);
+}
+
+.evento-esta-semana .poster-media {
+    height: 220px;
+}
+
+.evento-esta-semana .poster-title {
+    font-size: 1.1rem;
+}
+
+.evento-esta-semana::before {
+    height: 6px;
+    background: linear-gradient(90deg, #ff7b00 0%, #ffc107 40%, #ff2d55 80%, #ff7b00 100%);
+    background-size: 200% 100%;
+    animation: borderSlide 2s linear infinite;
+}
+
+@keyframes weekGlow {
+    0%, 100% {
+        box-shadow: 0 0 0 2px rgba(255, 123, 0, 0.4), 0 14px 40px rgba(255, 100, 0, 0.22);
+    }
+    50% {
+        box-shadow: 0 0 0 3px rgba(255, 200, 0, 0.7), 0 20px 56px rgba(255, 160, 0, 0.38);
+    }
+}
+
+@keyframes borderSlide {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 200% 0%; }
+}
+
+.badge-esta-semana {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 4;
+    background: linear-gradient(135deg, #ff7b00 0%, #ffc107 100%);
+    color: #ffffff;
+    font-size: 0.63rem;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 999px;
+    box-shadow: 0 4px 14px rgba(255, 123, 0, 0.5);
+    animation: badgePulse 1.8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes badgePulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 14px rgba(255, 123, 0, 0.5);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 4px 22px rgba(255, 200, 0, 0.75);
+    }
+}
+
 .card-hover-preview {
     position: absolute;
     right: 12px;
@@ -1660,5 +1726,13 @@ body {
 
     .card-title {
         font-size: 1.12rem;
+    }
+
+    .evento-esta-semana {
+        grid-column: span 1;
+    }
+
+    .evento-esta-semana .poster-media {
+        height: 160px;
     }
 }
